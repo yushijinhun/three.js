@@ -100,7 +100,7 @@
 
 							shader.fragmentShader = shader.fragmentShader
 								.replace( '#include <common>', fragmentParsChunk )
-								.replace( 'vec4 diffuseColor = vec4( diffuse, opacity );', colorChunk );
+								.replace( /vec4\s+diffuseColor\s*=\s*vec4\s*\(\s*diffuse\s*,\s*opacity\s*\)\s*;/, colorChunk );
 
 							//console.log( shader.uniforms );
 							//console.log( shader.vertexShader );
