@@ -18,8 +18,9 @@ function replaceAll( string, find, replace ) {
 
 }
 
-var meshphong_frag_head = ShaderChunk[ "meshphong_frag" ].slice( 0, ShaderChunk[ "meshphong_frag" ].indexOf( 'void main() {' ) );
-var meshphong_frag_body = ShaderChunk[ "meshphong_frag" ].slice( ShaderChunk[ "meshphong_frag" ].indexOf( 'void main() {' ) );
+var meshphong_match = /^([\s\S]*)(void\s+main\s*\(\s*\)\s*{[\S\s]*)$/.exec( ShaderChunk[ "meshphong_frag" ] );
+var meshphong_frag_head = meshphong_match[ 1 ];
+var meshphong_frag_body = meshphong_match[ 2 ];
 
 var SubsurfaceScatteringShader = {
 
